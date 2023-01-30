@@ -137,7 +137,7 @@ public static function Actualizar_Cartelera($id, $titulo, $descripcion,$img){
     $sql = "UPDATE carteleras SET titulo = ?, descripcion = ?, img = ? WHERE id = ?";
     $stmt=mysqli_stmt_init($conexion);
     mysqli_stmt_prepare($stmt,$sql);
-    mysqli_stmt_bind_param($stmt,"isss",$id, $titulo, $descripcion,$img);
+    mysqli_stmt_bind_param($stmt,"sssi",$titulo, $descripcion,$img,$id);
     mysqli_stmt_execute($stmt);       
     
 }
@@ -169,11 +169,25 @@ public static function CartelerasDisponibles(){
 
 }
 
+public static function TodasLasCarteleras($filtro2){    
+    include "conexion.php";
+    if(empty($filtro2)){
+        $sql="SELECT * FROM carteleras";  
+        $ListaCarteleras = mysqli_query($conexion, $sql);        
+        return $ListaCarteleras->fetch_all(MYSQLI_ASSOC);            
+     }else{         
+        $filtro2=$_POST['filtro2'];
+        $sql ="SELECT * FROM carteleras WHERE id LIKE '%".$filtro2."%' OR titulo LIKE '%".$filtro2."'";
+        $ListaCarteleras = mysqli_query($conexion, $sql);        
+        return $ListaCarteleras->fetch_all(MYSQLI_ASSOC);     
+    }   
+
+}
 
 
 public static function getCartelerasLikesUsuario($user){
     include "conexion.php";
-    $sql="SELECT img FROM carteleras c INNER JOIN likes l ON c.id = l.id_carteleras INNER JOIN usuarios u ON l.id_usuarios = u.id WHERE u.correo=$user";
+    $sql="SELECT img FROM carteleras c INNER JOIN likes l ON c.id = l.id_carteleras INNER JOIN usuarios u ON l.id_usuarios = u.id WHERE u.correo='$user'";
     $listaCarteleras = mysqli_query($conexion, $sql);        
     return $listaCarteleras->fetch_all(MYSQLI_ASSOC); 
    

@@ -17,6 +17,7 @@ try{
     $num=mysqli_num_rows($resultado);
     mysqli_free_result($resultado);
 
+
     //Si existen creamos la session, si no enviamos a login.php 
     if ($num==1){
         session_start();

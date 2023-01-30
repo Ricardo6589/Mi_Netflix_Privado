@@ -88,13 +88,16 @@ function Eliminar(id) {
                 if (ajax.status == 200) {
                     if (ajax.responseText == "OK") {
                         listar('');
+
                     }
                 } else {
                     resultado.innerText = 'Error';
                 }
             };
+
             ajax.send(formdata);
         }
+
 
     })
 

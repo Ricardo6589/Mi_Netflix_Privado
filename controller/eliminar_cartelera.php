@@ -16,10 +16,7 @@ mysqli_stmt_prepare($stmt,$sql);
 mysqli_stmt_bind_param($stmt,"i",$id);  
 mysqli_stmt_execute($stmt); 
 
-$sql2="SELECT img FROM carteleras WHERE id = $id";
 
-
-unlink("'../img/img_carteleras/'.$sql2");
 
 
 if($stmt->execute()) {

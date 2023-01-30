@@ -260,7 +260,7 @@ class Usuario {
         $sql = "UPDATE usuarios SET tipo = ?, nombre = ?, apellido = ?, correo = ?, password = ?, dni = ?, telefono = ? WHERE id = ?";
         $stmt=mysqli_stmt_init($conexion);
         mysqli_stmt_prepare($stmt,$sql);
-        mysqli_stmt_bind_param($stmt,"ssssssssi",$tipo,$nombre,$apellido,$correo,$password,$dni,$telefono,$id);
+        mysqli_stmt_bind_param($stmt,"sssssssi",$tipo,$nombre,$apellido,$correo,$password,$dni,$telefono,$id);
         mysqli_stmt_execute($stmt);       
         
     }

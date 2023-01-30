@@ -9,7 +9,8 @@ $ruta= "../img/img_carteleras/";
 
 foreach ($listaCarteleras as $cartelera) {
     echo "<tr>  
+    <div class='mas_vistas'>
     <td> <img class='' src=$ruta"."{$cartelera['img']}></td>  
-    </td>        
-    </tr>";
+    </div>";
+    echo "<tr>";
 };

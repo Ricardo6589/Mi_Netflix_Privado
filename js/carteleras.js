@@ -17,3 +17,64 @@ function listar() {
     ajax.send(formdata);
 }
 listar('');
+
+function listar2(filtro2) {
+
+    let resultado = document.getElementById("carousel-items");
+
+    let formdata = new FormData();
+    formdata.append('filtro2', filtro2);
+
+
+    const ajax = new XMLHttpRequest();
+    ajax.open('POST', '../controller/listar_carteleras3.php');
+    ajax.onload = function() {
+        if (ajax.status == 200) {
+            resultado.innerHTML = ajax.responseText;
+        } else {
+            resultado.innerText = 'Error';
+        }
+    }
+    ajax.send(formdata);
+}
+listar2('');
+
+
+buscar.addEventListener("keyup", () => {
+    const filtro = buscar.value;
+    if (filtro == "") {
+        listar2('');
+    } else {
+        listar2(filtro);
+    }
+});
+
+
+
+function like(id) {
+
+    const formdata = new FormData();
+    formdata.append('id', id);
+    console.log(id);
+    const ajax = new XMLHttpRequest();
+    ajax.open('POST', '../controller/like.php');
+    ajax.onload = function() {
+        if (ajax.status == 200) {
+            console.log(ajax.responseText);
+
+            if (ajax.responseText == "OK") {
+
+                Swal.fire({
+                    title: 'like eliminado ',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Okay'
+                })
+
+            }
+        } else {
+            alert('me gusta');
+        }
+    }
+    ajax.send(formdata);
+}

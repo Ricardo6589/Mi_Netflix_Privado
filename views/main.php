@@ -57,45 +57,39 @@ if (empty($_SESSION['user']) || $variable == 'no') {
                 </div>
             </div>
         </div>
-        <?php
-        include '../model/carteleras.php';
-        $listaCarteleras = Cartelera::CartelerasDisponibles();
-        ?>
+       
 
-        <div class="titulo-top_5 ">
+        <div class="titulo-Disponibles ">
             <h6>Mi lista</h6>
         </div>
 
-
-        <div class="top_5-contain" id="top_5-contain">
-
+        <div class="carousel-items" id="top_5-contain">
+       
         </div>
 
-
+        <?php
+        include '../model/carteleras.php';
+        $ListaCarteleras = Cartelera::TodasLasCarteleras();
+        ?>
         <div class="titulo-Disponibles">
-            <h6>Mas vistas</h6>
+            <h6>Disponibles</h6>
         </div>
 
-
-        <div class="carousel-items">
-            <?php
-
-            foreach ($listaCarteleras as $cartelera) {
-
-                echo "<tr>  
-                    <div class='mas_vistas'>
-                        <img src='../img/img_carteleras/" . $cartelera['img'] . "' alt='First slide'>              
-                        <button type='button' class='button-likes' onclick=like(" . $cartelera['id'] . "," . "'{$_SESSION['user']}'" . ")><i class='fa-brands fa-gratipay i-likes'></i></button>                                                       
-                    </div>";
-                echo "<tr>";
-            };
-            ?>
+        <div class="busqueda">
+            <form action="" method="post" id="frmbusqueda">
+                <div class="filtro">
+                    <input type="text" name="buscar" id="buscar" placeholder="Filtrar..." class="form-control">
+                </div>
+            </form>
+        </div>
+        
+        <div class="carousel-items" id="carousel-items">
+            
         </div>
     </div>
 
-    <script src="../js/carteleras"></script>
-    <script src="../js/carrousel.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="../js/carteleras.js"></script>
+    <script src="../js/carrousel.js"></script>   
 </body>
 
 </html>
