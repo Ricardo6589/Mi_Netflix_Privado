@@ -26,7 +26,8 @@ if (empty($_POST['id'])){
 }else{
     $id = $_POST['id'];
     require_once '../model/usuarios.php';                      
-    $resultado=Usuario::Actualizar_Usuario($id,$tipo,$nombre,$apellido, $correo,$password,$dni,$telefono);    
+    $resultado=Usuario::Actualizar_Usuario($id,$tipo,$nombre,$apellido, $correo,$password,$dni,$telefono);
+        
 }
    
 

@@ -28,9 +28,9 @@ buscar.addEventListener("keyup", () => {
 });
 
 
-registrar = document.getElementById('registrar');
+registrar.addEventListener("click", (e) => {
 
-registrar.addEventListener("click", () => {
+    e.preventDefault();
 
     var respuesta_ajax = document.getElementById('resultado')
 
@@ -44,15 +44,28 @@ registrar.addEventListener("click", () => {
     ajax.onload = function() {
         if (ajax.status === 200) {
 
-            Swal.fire({
-                icon: 'success',
-                title: 'Insertada',
-                showConfirmButton: false,
-                timer: 1500
-            });
-            form.reset();
-            listar('');
+            if (ajax.responseText == "Creado") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registrada',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                form.reset();
+                listar('');
+            } else {
 
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Modificada',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                registrar.value = "Registrar";
+                id.value = "";
+                listar('');
+                form.reset();
+            }
         } else {
             respuesta_ajax.innerText = 'Error';
         }

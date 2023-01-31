@@ -55,26 +55,23 @@ function like(id) {
 
     const formdata = new FormData();
     formdata.append('id', id);
-    console.log(id);
     const ajax = new XMLHttpRequest();
     ajax.open('POST', '../controller/like.php');
     ajax.onload = function() {
         if (ajax.status == 200) {
+
             console.log(ajax.responseText);
 
             if (ajax.responseText == "OK") {
 
-                Swal.fire({
-                    title: 'like eliminado ',
-                    icon: 'success',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Okay'
-                })
+                listar('');
+                listar2('');
 
             }
         } else {
             alert('me gusta');
         }
+
     }
     ajax.send(formdata);
 }

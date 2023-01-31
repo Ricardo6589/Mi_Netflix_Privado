@@ -30,12 +30,19 @@ if ($listaUsuarios[0]['tipo'] !== 'admin') {
 
     <div class="background3">
 
+
         <div class="busqueda">
             <form action="" method="post" id="frmbusqueda">
                 <div class="filtro">
                     <input type="text" name="buscar" id="buscar" placeholder="Filtrar..." class="form-control">
                 </div>
             </form>
+
+            <form action="main.php">
+                <button class="flecha_atras" ><i class="fa-regular fa-arrow-left-long-to-line"></i></button>
+            </form>          
+
+           
         </div>
 
         <div class="formulario">

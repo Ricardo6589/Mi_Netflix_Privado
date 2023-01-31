@@ -258,6 +258,11 @@ body::-webkit-scrollbar {
 
 /*Main*/
 
+.flecha_atras i {
+    color: white;
+    background-color: transparent;
+}
+
 .nav2 {
     width: 100%;
     background-image: linear-gradient(to top, rgba(255, 0, 0, 0), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0.208), rgba(255, 2, 2, 0.623));
@@ -272,8 +277,16 @@ body::-webkit-scrollbar {
     height: 100vh;
 }
 
+.background2 .busqueda {
+    margin-bottom: 0.2;
+}
+
 .background2 .column-2 {
     justify-content: center;
+}
+
+.background2 .titulo-Disponibles {
+    margin-bottom: 0;
 }
 
 .background2 .column-2 button {
@@ -290,6 +303,16 @@ body::-webkit-scrollbar {
     height: auto;
     background-color: transparent;
     border: none;
+    scale: 2;
+}
+
+.button-likes i {
+    color: white;
+}
+
+.button-likes i:hover {
+    animation: expand 1s;
+    transform: scale(1.5);
 }
 
 .button-likes2 {
@@ -298,8 +321,31 @@ body::-webkit-scrollbar {
     position: absolute;
     width: auto;
     height: auto;
-    background-color: red;
+    background-color: transparent;
     border: none;
+    scale: 2;
+}
+
+.button-likes2 i {
+    color: white;
+}
+
+.button-likes2 i:hover {
+    animation: expand 1s;
+    transform: scale(1.5);
+}
+
+@keyframes expand {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
+}
+
+.button-likes2 i {
+    color: red;
 }
 
 

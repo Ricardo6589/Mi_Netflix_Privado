@@ -54,6 +54,10 @@ if (empty($_SESSION['user']) || $variable == 'no') {
                     <?php
                     } ?>
 
+                    <form action="../index.php">
+                    <button ><i class="fa-regular fa-arrow-left-long-to-line"></i></button>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -67,10 +71,6 @@ if (empty($_SESSION['user']) || $variable == 'no') {
        
         </div>
 
-        <?php
-        include '../model/carteleras.php';
-        $ListaCarteleras = Cartelera::TodasLasCarteleras();
-        ?>
         <div class="titulo-Disponibles">
             <h6>Disponibles</h6>
         </div>
