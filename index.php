@@ -60,7 +60,7 @@
                     <form action="./controller/login.php" method="post" onsubmit="return valid()">                
                         <div>
                             <label for="">Correo</label>
-                            <input id="mail" type="text" name="mail" placeholder="example@gmail.com" onkeyup="validCorreo()">
+                            <input id="mail" type="text" name="mail" placeholder="example@gmail.com" onblur="validCorreo()">
                             <p id="mensaje1"></p>
                         </div>
                         <div>
@@ -91,39 +91,39 @@
             </div>
 
             <div class="formulario">
-                <form  action="./controller/crear_actualizar_usuario.php" method="post">         
+                <form  action="./controller/crear_actualizar_usuario.php" method="post" onsubmit="return valid()">         
 
                         <input type="hidden" name="index" value="index">
                         <input id="tipo" type="hidden" name="tipo" value="cliente">
                         <div>
                             <label for="nombre">Nombre</label>
-                            <input id="nombre" type="text" name="nombre">
-                            <p id="mensaje1"></p>
+                            <input id="nombre" type="text" name="nombre" required>
+                            <p id="mensaje3"></p>
                         </div>
                         <div>
                             <label for="apellido">Apellido</label>
-                            <input id="apellido" type="text" name="apellido">
-                            <p id="mensaje1"></p>
+                            <input id="apellido" type="text" name="apellido" required>
+                            <p id="mensaje4"></p>
                         </div>
                         <div>
                             <label for="correo">Correo</label>
-                            <input id="correo" type="text" name="correo" placeholder="example@gmail.com">
-                            <p id="mensaje1"></p>
+                            <input id="correo" type="text" name="correo" placeholder="example@gmail.com" onkeyup="validCorreo2()">
+                            <p id="mensaje5"></p>
                         </div>
                         <div>
                             <label for="password">Contraseña</label>
-                            <input id="password" type="password"  name="password">
-                            <p id="mensaje2"></p>
+                            <input id="password" type="password"  name="password" onblur="validPass2()" required>
+                            <p id="mensaje6"></p>
                         </div>
                         <div>
                             <label for="dni">DNI</label>
-                            <input id="dni" type="text" name="dni">
-                            <p id="mensaje2"></p>
+                            <input id="dni" type="text" name="dni" onblur="validDNI()" required >
+                            <p id="mensaje7"></p>
                         </div>
                         <div>
                             <label for="telefono">Telefono</label>
-                            <input id="telefono" type="text" name="telefono">
-                            <p id="mensaje2"></p>
+                            <input id="telefono" type="text" name="telefono" onblur="validTel()" required>
+                            <p id="mensaje8"></p>
                         </div>
                         <input type="submit" class="btn-login" value="Registrar" >
                     </form>
